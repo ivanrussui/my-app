@@ -1,8 +1,8 @@
 import { Component} from 'react';
 import styled from 'styled-components';
 // import { Component, Fragment } from 'react'; // ! 1 способ использования Fragment
-
 import './App.css';
+
 
 // styled components
 const EmpItem = styled.div`
@@ -11,6 +11,14 @@ const EmpItem = styled.div`
 	border-radius: 5px;
 	background-color: #fff;
 	box-shadow: 5px 5px 10px rgba(0,0,0, .2);
+	a {
+		text-decoration: none;
+		color: ${props => props.active ? 'orange' : 'red'};
+	}
+	input {
+		display: block;
+		margin: 0 auto;
+	}
 `;
 
 // styled components
@@ -19,7 +27,7 @@ const Header = styled.h2`
 	color: indigo;
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
 	display: block;
 	padding: 5px 15px;
 	background-color: gold;
@@ -62,7 +70,7 @@ class WhoAmI extends Component {
 		const {position, years, text} = this.state;
 
 		return (
-			<EmpItem> 
+			<EmpItem active> 
 				<Button onClick={this.nextYear}>{text}</Button>
 				<Header>My name is {name}, surname - {surname}, 
 					age - {years}, 
